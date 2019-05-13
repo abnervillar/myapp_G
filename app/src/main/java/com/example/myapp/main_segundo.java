@@ -22,15 +22,19 @@ public class main_segundo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segundo_main);
 
-        et1=(EditText)findViewById(R.id.editText);
+        et1=(EditText)findViewById(R.id.editText3);
         lista1 = (ListView)findViewById(R.id.lv1);
+
+
+
+        et1.setEnabled(false);
 
         ConexionSQLiteHelper conn = new ConexionSQLiteHelper(getApplicationContext(),"BDD",null,1);
         lista = conn.llenar_lv();
         adaptador = new ArrayAdapter(this,android.R.layout.simple_list_item_1);
         lista1.setAdapter(adaptador);
 
-        et1.setEnabled(false);
+
         Bundle bundle = getIntent().getExtras();
         String dato =bundle.getString("mesa");
         et1.setText(dato);
